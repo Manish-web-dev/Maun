@@ -12,10 +12,10 @@ document.querySelectorAll('.reveal').forEach((item, index) => {
   observer.observe(item);
 });
 
-// Save photos into /images with the filenames shown on the placeholders.
+// Load the photo supplied for each memory slot.
 document.querySelectorAll('[data-image]').forEach((slot) => {
   const photo = new Image();
-  photo.src = `images/${slot.dataset.image}`;
+  photo.src = slot.dataset.image;
   photo.alt = slot.querySelector('figcaption')?.textContent || 'हाम्रो एउटा प्यारो सम्झना';
   photo.onload = () => {
     slot.classList.add('has-photo');
