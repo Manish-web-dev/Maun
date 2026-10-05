@@ -12,17 +12,6 @@ document.querySelectorAll('.reveal').forEach((item, index) => {
   observer.observe(item);
 });
 
-// Load the photo supplied for each memory slot.
-document.querySelectorAll('[data-image]').forEach((slot) => {
-  const photo = new Image();
-  photo.src = slot.dataset.image;
-  photo.alt = slot.querySelector('figcaption')?.textContent || 'हाम्रो एउटा प्यारो सम्झना';
-  photo.onload = () => {
-    slot.classList.add('has-photo');
-    (slot.querySelector('.photo-placeholder') || slot).prepend(photo);
-  };
-});
-
 // Use only the supplied MP3 tracks. Attempt audible autoplay; browsers that
 // block it can start playback from the visible sound button.
 const musicButton = document.querySelector('.music-toggle');
